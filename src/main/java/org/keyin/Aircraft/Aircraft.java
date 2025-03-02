@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Aircraft {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+    protected Long id;
     protected String name;
 
     @ManyToMany

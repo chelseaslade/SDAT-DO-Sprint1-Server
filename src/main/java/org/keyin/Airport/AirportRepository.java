@@ -1,4 +1,6 @@
 package org.keyin.Airport;
 
-public class AirportRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AirportRepository extends JpaRepository<Airport, Long> {
 }

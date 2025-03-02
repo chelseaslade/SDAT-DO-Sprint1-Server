@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+    protected Long id;
     protected int population;
 
     @OneToMany

@@ -1,7 +1,6 @@
 package org.keyin.Passenger;
 
 import org.keyin.Aircraft.Aircraft;
-import org.keyin.Airport.Airport;
 import org.keyin.City.City;
 
 import javax.persistence.*;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+    protected Long id;
     protected String name;
 
     @ManyToMany

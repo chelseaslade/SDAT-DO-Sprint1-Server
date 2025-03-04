@@ -13,9 +13,6 @@ public class Passenger {
     protected Long id;
     protected String name;
 
-    @ManyToMany
-    protected ArrayList<Aircraft> aircrafts;
-
     @ManyToOne
     protected City city;
 }

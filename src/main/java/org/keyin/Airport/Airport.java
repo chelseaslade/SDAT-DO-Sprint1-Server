@@ -11,6 +11,7 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String name;
+    protected String airportCode;
 
     @ManyToMany
     protected ArrayList<Aircraft> aircraft;

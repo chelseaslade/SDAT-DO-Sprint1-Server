@@ -1,6 +1,5 @@
 package org.keyin.City;
 
-import org.keyin.Aircraft.Aircraft;
 import org.keyin.Airport.Airport;
 
 import javax.persistence.*;

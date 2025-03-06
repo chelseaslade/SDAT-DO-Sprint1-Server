@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 @Service
 public class AirportService {
+    private final AirportRepository airportRepository;
+
     @Autowired
-    private AirportRepository airportRepository;
+    public AirportService(AirportRepository airportRepository) {
+        this.airportRepository = airportRepository;
+    }
 
     public ArrayList<Airport> getAllAirports() {
         return (ArrayList<Airport>) airportRepository.findAll();

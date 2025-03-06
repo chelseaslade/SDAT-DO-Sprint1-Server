@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 @Service
 public class CityService {
+    private final CityRepository cityRepository;
+
     @Autowired
-    private CityRepository cityRepository;
+    public CityService(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
 
     public ArrayList<City> getAllCities() {
         return (ArrayList<City>) cityRepository.findAll();

@@ -3,11 +3,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.keyin.City.City;
 import org.keyin.City.CityRepository;
 import org.keyin.City.CityService;
+import org.keyin.Passenger.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ public class AppTests {
     @Autowired
     private CityService cityService;
 
-    @Mock
+    @MockBean
     private CityRepository cityRepository;
 
     @Test
@@ -33,6 +35,6 @@ public class AppTests {
 
         List<City> result = cityService.getAllCities();
         assertEquals(1, result.size());
-        assertEquals("New York", result.get(0).getName());
+        assertEquals("Halifax", result.get(0).getName());
     }
 }

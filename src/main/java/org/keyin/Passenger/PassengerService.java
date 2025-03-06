@@ -6,8 +6,12 @@ import java.util.ArrayList;
 
 @Service
 public class PassengerService {
+    private final PassengerRepository passengerRepository;
+
     @Autowired
-    private PassengerRepository passengerRepository;
+    public PassengerService(PassengerRepository passengerRepository) {
+        this.passengerRepository = passengerRepository;
+    }
 
     public ArrayList<Passenger> getAllPassengers() {
         return (ArrayList<Passenger>) passengerRepository.findAll();

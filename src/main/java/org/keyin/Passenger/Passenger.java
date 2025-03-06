@@ -15,6 +15,9 @@ public class Passenger {
     @ManyToOne
     protected City city;
 
+    public Passenger(String name, City city) {
+    }
+
     public Long getId() { return this.id; }
 
     public String getName() { return this.name; }

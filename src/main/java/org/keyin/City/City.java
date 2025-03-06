@@ -36,4 +36,20 @@ public class City {
     public String getCountry() {
         return this.country;
     }
+
+    public List<Airport> getAirports() {
+        return this.airports;
+    }
+
+    public void setAirports(List<Airport> airports) {
+        this.airports = airports;
+    }
+
+    public void setName(String value) {
+        this.name = value;
+    }
+
+    public void setCountry(String value) {
+        this.country = value;
+    }
 }

@@ -18,4 +18,10 @@ public class Passenger {
     public Long getId() { return this.id; }
 
     public String getName() { return this.name; }
+
+    public City getCity() { return this.city; }
+
+    public void setCity(City city) { this.city = city; }
+
+    public void setName(String name) { this.name = name; }
 }

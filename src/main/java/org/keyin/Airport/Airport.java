@@ -22,5 +22,13 @@ public class Airport {
 
     public String getName() { return this.name; }
 
+    public City getCity() { return this.city; }
+
     public String getAirportCode() { return this.airportCode; }
+
+    public void setAirportCode(String airportCode) { this.airportCode = airportCode; }
+
+    public void setCity(City city) { this.city = city; }
+
+    public void setName(String airportName) { this.name = airportName; }
 }

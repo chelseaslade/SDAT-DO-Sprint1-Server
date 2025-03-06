@@ -17,4 +17,13 @@ public class Aircraft {
     public Long getId() { return this.id; }
 
     public String getName() { return this.name; }
+
+    public List<Passenger> getPassengers() { return this.passengers; }
+
+    public void setName(String name) { this.name = name; }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
 }

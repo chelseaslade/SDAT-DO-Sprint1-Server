@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/api/cities")
+@RequestMapping("/api/aircraft")
 public class AircraftController {
 
     @Autowired

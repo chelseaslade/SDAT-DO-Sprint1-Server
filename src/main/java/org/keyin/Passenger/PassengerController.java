@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/api/cities")
+@RequestMapping("/api/passengers")
 public class PassengerController {
 
     @Autowired

@@ -4,7 +4,6 @@ import org.keyin.Aircraft.Aircraft;
 import org.keyin.City.City;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @Entity
 public class Passenger {

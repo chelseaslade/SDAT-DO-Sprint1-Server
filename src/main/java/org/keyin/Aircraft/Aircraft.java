@@ -2,7 +2,7 @@ package org.keyin.Aircraft;
 
 import org.keyin.Passenger.Passenger;
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Aircraft {
@@ -12,5 +12,5 @@ public class Aircraft {
     protected String name;
 
     @ManyToMany
-    protected ArrayList<Passenger> passengers;
+    protected List<Passenger> passengers;
 }

@@ -3,7 +3,7 @@ package org.keyin.Airport;
 import org.keyin.Aircraft.Aircraft;
 import org.keyin.City.City;
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Airport {
@@ -14,7 +14,7 @@ public class Airport {
     protected String airportCode;
 
     @ManyToMany
-    protected ArrayList<Aircraft> aircraft;
+    protected List<Aircraft> aircraft;
     @ManyToOne
     protected City city;
 }

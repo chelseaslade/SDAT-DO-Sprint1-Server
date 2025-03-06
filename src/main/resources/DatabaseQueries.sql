@@ -23,13 +23,13 @@ CREATE TABLE passengers (
                             FOREIGN KEY (aircraft_id) REFERENCES aircraft(id)
 );
 
-INSERT INTO airports (name, airportcode, city_id) VALUES
-                                      ("Halifax Stanfield International Airport", "YHZ", 1),
-                                      ("St. John's International Airport", "YYT", 2),
-                                      ("Toronto Pearson International Airport", "YYZ", 3),
-                                      ("Calgary International Airport", "YYC", 4),
-                                      ("Gander International Airport", "YQZ", 5),
-                                      ("Vancouver International Airport", "YVR", 6);
+INSERT INTO airport (name, airport_code, city_id) VALUES
+                                                      ("Halifax Stanfield International Airport", "YHZ", 1),
+                                                      ("St. John's International Airport", "YYT", 2),
+                                                      ("Toronto Pearson International Airport", "YYZ", 3),
+                                                      ("Calgary International Airport", "YYC", 4),
+                                                      ("Gander International Airport", "YQZ", 5),
+                                                      ("Vancouver International Airport", "YVR", 6);
 
 INSERT INTO aircraft (name) VALUES
                                 ("Airbus 320"),
@@ -40,15 +40,15 @@ INSERT INTO aircraft (name) VALUES
                                 ("Boeing 737");
 
 
-INSERT INTO cities (name) VALUES
-                              ("Halifax"),
-                              ("St. John's"),
-                              ("Toronto"),
-                              ("Calgary"),
-                              ("Gander"),
-                              ("Vancouver");
+INSERT INTO city (country, name) VALUES
+                                     ("Canada", "Halifax"),
+                                     ("Canada", "St. John's"),
+                                     ("Canada", "Toronto"),
+                                     ("Canada", "Calgary"),
+                                     ("Canada", "Gander"),
+                                     ("Canada", "Vancouver");
 
-INSERT INTO passengers (name, aircraft_id) VALUES
+INSERT INTO passenger (name, city_id) VALUES
                                   ("John Doe", 1),
                                   ("Alice Sassy", 2),
                                   ("Jane Doe", 3),

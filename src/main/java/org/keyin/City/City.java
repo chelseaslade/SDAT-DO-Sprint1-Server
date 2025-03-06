@@ -23,10 +23,17 @@ public class City {
     }
 
     public City() {
+    }
 
+    public Long getId() {
+        return this.id;
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public String getCountry() {
+        return this.country;
     }
 }

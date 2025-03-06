@@ -10,6 +10,7 @@ public class CityService {
 
     @Autowired
     public CityService(CityRepository cityRepository) {
+        System.out.println("CityService Bean Created!");
         this.cityRepository = cityRepository;
     }
 

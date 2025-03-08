@@ -18,6 +18,9 @@ public class Passenger {
     public Passenger(String name, City city) {
     }
 
+    public Passenger() {
+    }
+
     public Long getId() { return this.id; }
 
     public String getName() { return this.name; }

@@ -14,6 +14,10 @@ public class Aircraft {
     @ManyToMany
     protected List<Passenger> passengers;
 
+    public Aircraft(String name) {
+        this.name = name;
+    }
+
     public Aircraft() {
     }
 

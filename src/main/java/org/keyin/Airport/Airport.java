@@ -18,6 +18,12 @@ public class Airport {
     @ManyToOne
     protected City city;
 
+    public Airport(String name, String airportCode, City city) {
+        this.name = name;
+        this.airportCode = airportCode;
+        this.city = city;
+    }
+
     public Airport() {}
 
     public Long getId() { return this.id; }

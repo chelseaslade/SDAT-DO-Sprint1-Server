@@ -16,6 +16,8 @@ public class Passenger {
     protected City city;
 
     public Passenger(String name, City city) {
+        this.name = name;
+        this.city = city;
     }
 
     public Passenger() {

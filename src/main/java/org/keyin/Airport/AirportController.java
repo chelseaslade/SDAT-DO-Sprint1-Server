@@ -1,11 +1,14 @@
 package org.keyin.Airport;
 
+import org.keyin.City.City;
+import org.keyin.City.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/airports")
@@ -17,6 +20,25 @@ public class AirportController {
     @Autowired
     private AirportRepository airportRepository;
 
+    @Autowired
+    private CityRepository cityRepository;
+
+    @PostMapping
+    public ResponseEntity<Airport> createAirport(@RequestBody Airport airport) {
+        if (airport.getCity() == null || airport.getCity().getId() == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Optional<City> cityOptional = cityRepository.findById(airport.getCity().getId());
+        if (cityOptional.isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        airport.setCity(cityOptional.get());
+        Airport savedAirport = airportRepository.save(airport);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedAirport);
+    }
+
     @GetMapping
     public ArrayList<Airport> getAirports() {
         return airportService.getAllAirports();
@@ -25,12 +47,6 @@ public class AirportController {
     @GetMapping("/{id}")
     public Airport getAirport(@PathVariable Long id) {
         return airportService.getAirportById(id);
-    }
-
-    @PostMapping
-    public ResponseEntity<Airport> createAirport(@RequestBody Airport airport) {
-        Airport savedAirport = airportRepository.save(airport);
-        return new ResponseEntity<>(savedAirport, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
@@ -45,15 +61,26 @@ public class AirportController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Airport> updateAirport(@PathVariable Long id, @RequestBody Airport updatedAirport) {
-        return airportRepository.findById(id)
-                .map(existingAirport -> {
-                    existingAirport.setName(updatedAirport.getName());
-                    existingAirport.setCity(updatedAirport.getCity());
-                    existingAirport.setAirportCode(updatedAirport.getAirportCode());
-                    Airport savedAirport = airportRepository.save(existingAirport);
-                    return new ResponseEntity<>(savedAirport, HttpStatus.OK);
-                })
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        Optional<Airport> optionalAirport = airportRepository.findById(id);
+
+        if (optionalAirport.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Airport existingAirport = optionalAirport.get();
+        existingAirport.setName(updatedAirport.getName());
+        existingAirport.setAirportCode(updatedAirport.getAirportCode());
+
+        if (updatedAirport.getCity() != null && updatedAirport.getCity().getId() != null) {
+            Optional<City> cityOptional = cityRepository.findById(updatedAirport.getCity().getId());
+            if (cityOptional.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // Invalid city ID
+            }
+            existingAirport.setCity(cityOptional.get()); // Assign existing City
+        }
+
+        Airport savedAirport = airportRepository.save(existingAirport);
+        return ResponseEntity.ok(savedAirport);
     }
 
 }
